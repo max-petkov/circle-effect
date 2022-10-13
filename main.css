@@ -1,0 +1,127 @@
+/* Variables */
+:root {
+  --color-primary: #0d47ea;
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+/* Card */
+.card {
+  overflow: hidden;
+  position: relative;
+  background-color: #f7f7f9;
+  font-family: sans-serif;
+  width: 256px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.card__content {
+  padding: 24px;
+  height: 100%;
+}
+
+.card__img {
+  max-width: 64px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  transition: -webkit-filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  -o-transition: filter 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  -o-transition: filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  transition: filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  transition: filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s,
+    -webkit-filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+  transition: filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s,
+    -webkit-filter 0.3s cubic-bezier(0.85, 0, 0.15, 1) 0.2s;
+}
+
+.card__title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #181a1f;
+}
+
+.card__subtitle {
+  font-size: 18px;
+  color: #71788d;
+  margin-bottom: 64px;
+}
+
+.card__icon {
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
+}
+
+.card svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card svg circle {
+  fill: var(--color-primary);
+  r: var(--r, 0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform: translate3d(var(--x, 0), var(--y, 0), 0);
+  transform: translate3d(var(--x, 0), var(--y, 0), 0);
+  -webkit-transition: r 0.75s ease-in-out;
+  -o-transition: r 0.75s ease-in-out;
+  transition: r 0.75s ease-in-out;
+}
+
+.card__content.is-cloned {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primary);
+  pointer-events: none;
+}
+
+.card__content.is-cloned .card__img img {
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
+}
+
+.card__content.is-cloned .card__title {
+  color: #ffffff;
+}
+
+.card__content.is-cloned .card__subtitle {
+  color: #ffffff;
+}
+
+.card__content.is-cloned .card__icon {
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
+}
